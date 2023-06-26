@@ -8,11 +8,7 @@
 </head>
 <body>
 
-	<p>USERNAME : ${USERS.username}</p>
-	<p>PASSWORD : ${USERS.password}</p>
-	<p>이름 : ${USERS.name}</p>
-	<p>전화번호 : ${USERS.tel}</p>
-	<p>주소 : ${USERS.addr}</p>
+<h1>반갑습니다.</h1>
 
 </body>
 </html>
