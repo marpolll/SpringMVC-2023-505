@@ -26,6 +26,5 @@
 		Component 로 생성하라
 	 -->
 	<context:component-scan base-package="com.marpol.address.controller" />
-	<context:component-scan base-package="com.marpol.address.service.impl" />
 	
 </beans:beans>
