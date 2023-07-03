@@ -101,7 +101,6 @@ public class AddrServiceImplV1 implements AddrService {
 		return result;
 	}
 
-	@Override
 	public int delete(String id) {
 
 		int result = addrDao.delete(id);

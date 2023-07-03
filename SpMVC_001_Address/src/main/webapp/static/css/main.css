@@ -34,7 +34,7 @@ section.main {
   flex: 1;
   margin: 3px;
   padding: 3px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
   /* 
   	box 범위 내에서 content 를 Scroll 하면서 보여주기
