@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
-<c:set value="20230703-013" var="version" />
+<c:set value="20230704-003" var="version" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나의 주소록</title>
 <link href="${rootPath}/static/css/main.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/nav.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/table.css?${version}"
@@ -18,7 +18,8 @@
 <link href="${rootPath}/static/css/list.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/detail.css?${version}"
 	rel="stylesheet" />
-	<link href="${rootPath}/static/css/user/login.css?${version}" rel="stylesheet" />
+<link href="${rootPath}/static/css/user/login.css?${version}"
+	rel="stylesheet" />
 
 <script>
 	// JSP 에서 사용하는 rootPath 변수를
@@ -50,19 +51,24 @@
 		<c:if test="${BODY == 'DETAIL'}">
 			<%@ include file="/WEB-INF/views/addr/detail.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${BODY == 'UPDATE'}">
 			<%@ include file="/WEB-INF/views/addr/update.jsp"%>
 		</c:if>
-		
+
 		<c:if test="${BODY == 'LOGIN'}">
 			<%@ include file="/WEB-INF/views/user/login.jsp"%>
 		</c:if>
-		
+
 	</section>
 	<footer>
 		<address>CopyRight &copy; marpol.marpol.com</address>
 	</footer>
 
 </body>
+<c:if test="${MSG == 'LOGOUT'}">
+	<script>
+		alert("로그아웃 되었습니다.")
+	</script>
+</c:if>
 </html>

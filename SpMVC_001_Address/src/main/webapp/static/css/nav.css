@@ -17,6 +17,7 @@ nav.main li {
   padding: 10px 12px 8px 12px;
 
   border: 2px solid transparent;
+  white-space: nowrap;
   transition: 0.7s;
 }
 
