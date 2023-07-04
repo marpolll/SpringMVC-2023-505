@@ -50,7 +50,7 @@
 		@Select, @Insert, @Update, @Delete 등이 있으면
 		SQL 을 만들어라
 	 -->	
-	<mybatis-spring:scan base-package="com.marpol.address.dao"/>
+	<mybatis-spring:scan base-package="com.marpol.calendar.dao"/>
 	
 </beans>
 
