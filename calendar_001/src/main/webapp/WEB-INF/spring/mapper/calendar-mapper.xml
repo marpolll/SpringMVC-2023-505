@@ -8,9 +8,10 @@
 	<insert id="insert">
 
 		INSERT INTO calendar
-		(content, start_date, end_date)
+		(events)
 		VALUES
-		(#{content}, #{start_date}, #{end_date})
+		(#'{events}');
+
 
 	</insert>
 
