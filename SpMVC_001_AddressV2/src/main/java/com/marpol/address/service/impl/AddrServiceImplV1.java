@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.marpol.address.dao.AddrDao;
 import com.marpol.address.dao.ByuerDao;
@@ -72,6 +73,7 @@ public class AddrServiceImplV1 implements AddrService {
 		return addrDao.selectAll();
 	}
 
+	@Transactional
 	public AddrDto findById(String id) {
 		
 		// id 에 해당하는 주소 조회

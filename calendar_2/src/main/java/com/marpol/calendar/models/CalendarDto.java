@@ -13,9 +13,9 @@ import lombok.ToString;
 @Getter
 public class CalendarDto {
 	
-	private String events;
-	private String title;
-	private String start;
-	private String end;
+	
+	private String content;
+	private String start_date;
+	private String end_date;
 
 }
