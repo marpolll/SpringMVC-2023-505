@@ -43,6 +43,10 @@
 				start : "2023-07-10 00:00:00",
 				end : "2023-07-15 24:00:00",
 			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
+			}, {
+				title : "물마시기",
+				start : "2023-07-15 00:00:00",
+				end : "2023-07-30 24:00:00",
 			}, ],
 			headerToolbar : {
 				center : "addEventButton", // headerToolbar에 버튼을 추가
@@ -136,8 +140,7 @@
 					<button type="button" class="btn btn-warning" id="addCalendar">
 						추가</button>
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal" id="sprintSettingModalClose">
-						취소</button>
+						data-dismiss="modal" id="sprintSettingModalClose">취소</button>
 				</div>
 			</div>
 		</div>
