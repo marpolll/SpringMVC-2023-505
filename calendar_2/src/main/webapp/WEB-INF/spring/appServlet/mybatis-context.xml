@@ -35,7 +35,7 @@
 
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="mySQL_DS" />
+		<property name="dataSource" ref="ds" />
 		<property name="typeAliasesPackage"
 			value="com.marpol.calendar.models"/>
 		<property name="mapperLocations"
