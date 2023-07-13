@@ -43,7 +43,11 @@
 				start : "2023-07-10 00:00:00",
 				end : "2023-07-15 24:00:00",
 			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
-			}, ],
+			},
+			{
+				url : '/json.jsp',
+			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
+			},],
 			headerToolbar : {
 				center : "addEventButton", // headerToolbar에 버튼을 추가
 			},

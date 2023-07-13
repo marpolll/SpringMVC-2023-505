@@ -25,12 +25,16 @@ public class CalendarController {
 		return "home";
 	}
 	
-	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public List<CalendarDto> list() {
 		List<CalendarDto> calendarList = calendarService.selectAll();
 		return calendarList;
 	}
-
+	
+	@RequestMapping(value = "/input", method = RequestMethod.GET)
+	public String insert() {
+		return "input";
+	}
+	
 }
