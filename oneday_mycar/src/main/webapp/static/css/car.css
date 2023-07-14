@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  background-color: black;
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+
+table {
+  width: 80%;
+  margin: 10px auto;
+}
+
+table.table1 {
+  border-collapse: separate;
+  border-collapse: collapse;
+}
+
+table.table1 th {
+  background-color: gray;
+}
+
+table.table1 tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+table.table1 tr:nth-child(odd) {
+  background-color: #aaa;
+}
+
+form {
+  display: flex;
+}
+
+input {
+  padding: 8px;
+  margin: 10px auto;
+  text-align: left;
+}
+
+input.todo {
+  padding: 1rem;
+}
+
+div {
+  padding: 0px;
+  margin: 0px auto;
+}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <article class="detail data">
 
 	<div>
@@ -20,11 +20,10 @@
 	</div>
 
 	<div>
-		<strong>취미</strong>
-		<span>
-		<c:forEach items="${ADDR.hobbyList}" var="HOBBY" varStatus="INDEX">
-			<p>${INDEX.count}. ${HOBBY.hb_name}</p>				
-		</c:forEach>
+		<strong>취미</strong> <span> <c:forEach items="${ADDR.hobbyList}"
+				var="HOBBY" varStatus="INDEX">
+				<p>${INDEX.count}.${HOBBY.hb_name}</p>
+			</c:forEach>
 		</span>
 	</div>
 

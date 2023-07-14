@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.marpol.car.dao.CarDao">
+ 
+ 	<insert id="insert">
+ 	
+ 	INSERT INTO tbl_car
+ 	(c_title, c_ddate, c_dtime,
+ 	 c_ddis, c_edate, c_etime, c_edis,
+     c_place, c_cost)
+ 	VALUES
+ 	(#{c_title}, #{c_ddate}, #{c_dtime},
+       #{c_ddis}, #{c_edate}, #{c_etime}, #{c_edis},
+       #{c_place}, #{c_cost})
+ 	
+ 	</insert>
+ 	
+ 	
+ 	
+ 	<update id="update">
+ 	
+ 	UPDATE tbl_car
+		SET c_title = #{c_title},
+		c_ddate = #{c_ddate},
+		c_dtime = #{c_dtime},
+		c_ddis = #{c_ddis},
+		c_edate = #{c_edate},
+		c_etime = #{c_etime},
+		c_edis = #{c_edis},
+		c_place = #{c_place},
+		c_cost = #{c_cost}
+		WHERE c_no = #{c_no}
+ 	
+ 	</update>
+ 
+ </mapper> 
