@@ -43,11 +43,10 @@
 				start : "2023-07-10 00:00:00",
 				end : "2023-07-15 24:00:00",
 			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
-			},
-			{
+			}, {
 				url : '/json.jsp',
 			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
-			},],
+			}, ],
 			headerToolbar : {
 				center : "addEventButton", // headerToolbar에 버튼을 추가
 			},
@@ -88,7 +87,26 @@
 										}; //전송할 객체 생성
 
 										console.log(obj); //서버로 해당 객체를 전달해서 DB 연동 가능
+										
+										savedata(obj);
 									}
+									
+									function savedata(obj) {
+										$.ajax({
+											type: 'POST',
+											url: "obj.php"
+											data: {"alldata": jsondata},
+											dataType: 'text',
+											async: false
+											
+										})
+										.done(function (result) {
+										})
+										.fail(function (request, status, error) {
+											alert("에러 : " + error);
+										})
+									}
+									
 								});
 					},
 				},
@@ -140,8 +158,7 @@
 					<button type="button" class="btn btn-warning" id="addCalendar">
 						추가</button>
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal" id="sprintSettingModalClose">
-						취소</button>
+						data-dismiss="modal" id="sprintSettingModalClose">취소</button>
 				</div>
 			</div>
 		</div>

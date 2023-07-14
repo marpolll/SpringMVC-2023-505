@@ -1,8 +1,10 @@
 package com.marpol.calendar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +23,10 @@ public class CalendarController {
 	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String home(Model model) {
+		
+		List<CalendarDto> calendarList = calendarService.selectAll();
+		model.addAttribute("CAL", calendarList);
 		return "home";
 	}
 	
@@ -29,6 +34,9 @@ public class CalendarController {
 	@ResponseBody
 	public List<CalendarDto> list() {
 		List<CalendarDto> calendarList = calendarService.selectAll();
+//		List<CalendarDto> calendarList = new ArrayList<CalendarDto>();
+//		CalendarDto semple = new CalendarDto(1, "물", "2023-07-01", "2023-07-12");
+//		calendarList.add(semple);
 		return calendarList;
 	}
 	

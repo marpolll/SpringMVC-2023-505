@@ -6,13 +6,9 @@
 <mapper namespace="com.marpol.calendar.dao.CalendarDao">
 
 	<insert id="insert">
-
-		INSERT INTO calendar
-		(events)
-		VALUES
-		(#'{events}');
-
-
+		insert into calendar(c_id, events) 
+		values
+		(#{c_id},'{ "title" : "#{title}", "start" : "#{start}", "end": "#{end}" }');
 	</insert>
 
 </mapper>
