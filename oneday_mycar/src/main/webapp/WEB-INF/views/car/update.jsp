@@ -30,6 +30,14 @@
 		</div>
 		
 		<div>
+			<label>종료일자</label> <input name="c_edate" value="${C.c_edate}" />
+		</div>
+
+		<div>
+			<label>종료시각</label> <input name="c_etime" value="${C.c_etime}" />
+		</div>
+		
+		<div>
 			<label>종료거리</label> <input name="c_edis" value="${CAR.c_edis}"/>
 		</div>
 		<div class="message c_edis">

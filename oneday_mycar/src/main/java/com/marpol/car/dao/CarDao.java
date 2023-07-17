@@ -19,8 +19,8 @@ public interface CarDao {
 	@Select("SELECT * FROM tbl_car ORDER BY c_no")
 	public List<CarDto> selectAll();
 	
-	@Select("SELECT * FROM tbl_car WHERE c_no = #{id}")
-	public CarDto findById(String id);
+	@Select("SELECT * FROM tbl_car WHERE c_no = #{c_no}")
+	public CarDto findById(long c_no);
 
 	
 //	public List<CarDto> findByName(String name);
@@ -29,7 +29,8 @@ public interface CarDao {
 
 	public int update(CarDto carDto);
 
-	@Delete("DELETE FROM tbl_car WHERE c_no = #{id}")
-	public int delete(String id);
+	@Delete("DELETE FROM tbl_car WHERE c_no = #{c_no}")
+	public int delete(long c_no);
+
 	
 }

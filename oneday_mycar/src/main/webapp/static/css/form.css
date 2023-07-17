@@ -12,9 +12,8 @@ form.main fieldset {
 }
 
 form.main legend {
-  /* 제목을 우측으로 밀기 */
   margin: 20px;
-  /* 제목 box 의 여백주기 */
+
   padding: 20px;
 
   font-size: 2rem;
@@ -31,11 +30,7 @@ form.main div {
 div.message {
   padding: 12px 20px;
   text-align: left;
-  /* 
-	!important
-  	 css 의 속성을 적용하려고 할때, 이유없이 
-	 적용이 안될때 강제로 적용하는 속성
-  */
+
   display: none !important;
 }
 
@@ -68,7 +63,6 @@ form.main input {
   flex: 3;
   border: 1px solid #eee;
 
-  /* input box 클릭했을때 두꺼운 boder 가 나타나지 않도록 */
   outline: none;
   border-radius: 10px;
 }

@@ -68,27 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   btn_input?.addEventListener("click", inputButtonClickHandler);
-
-  input_id.addEventListener("blur", async (e) => {
-    const value = e.target.value;
-    const idCheck_url = `${rootPath}/id_check?id=${value}`;
-
-    if (!value) {
-      message_view(INDEX.ID, "error", "* ID 는 반드시 입력해야 합니다.");
-      input_id.focus();
-      return false;
-    }
-
-    const response = await fetch(idCheck_url);
-    const result = await response.text();
-    if (result === "OK") {
-      message_view(INDEX.ID, "ok", "* 사용 가능한 ID 입니다.");
-    } else if (result === "FAIL") {
-      message_view(INDEX.ID, "error", "* 이미 추가된 ID 입니다. 사용불가!!");
-      input_id.focus();
-    } else {
-      message_view(INDEX.ID, "error", "* 서버오류. 알수없는 오류!!");
-      input_id.focus();
-    }
-  });
 });

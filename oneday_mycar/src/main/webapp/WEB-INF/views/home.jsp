@@ -2,18 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
-<c:set value="20230714-007" var="version" />
+<c:set value="20230717-006" var="version" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>운행기록</title>
 <link href="${rootPath}/static/css/car.css?${version}" rel="stylesheet" />
+<link href="${rootPath}/static/css/table.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/button.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/form.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/list.css?${version}" rel="stylesheet" />
-<link href="${rootPath}/static/css/table.css?${version}" rel="stylesheet" />
-<link href="${rootPath}/static/css/test.css?${version}" rel="stylesheet" />
 <link href="${rootPath}/static/css/detail.css?${version}" rel="stylesheet" />
 
 <script>

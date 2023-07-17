@@ -23,9 +23,9 @@ public class CarServiceImplV1 implements CarService {
 	}
 
 	@Transactional
-	public CarDto findById(String id) {
+	public CarDto findById(long c_no) {
 
-		CarDto carDto = carDao.findById(id);
+		CarDto carDto = carDao.findById(c_no);
 		
 		return carDto;
 	}
@@ -45,9 +45,12 @@ public class CarServiceImplV1 implements CarService {
 		return result;
 	}
 
-	public int delete(String id) {
-		int result = carDao.delete(id);
+	public int delete(long c_no) {
+
+		int result = carDao.delete(c_no);
+
 		return result;
+
 
 	}
 
