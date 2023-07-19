@@ -2,8 +2,10 @@ package com.marpol.car.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,18 +27,22 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(@ModelAttribute("CAR")CarDto carDto) {
+	public String home(@ModelAttribute("CAR")CarDto carDto, Model model) {
 		
 		// src/main/resource 폴더에서 logback-test.xml 
 		// 부분에서 level 부분 바꾸어서 console 에 보일수도 아닐수도 
-//		log.debug("나는 홈 컨트롤러 입니다.");
-//		log.error("나는 홈 컨트롤러 입니다.");
+		// log.debug("나는 홈 컨트롤러 입니다.");
+		// log.error("나는 홈 컨트롤러 입니다.");
 		
-		return "home";
+		List<CarDto> carList = carService.selectAll();
+		model.addAttribute("CAR_LIST", carList);
+		return "car/input";
 	}
 	
 	@RequestMapping(value = "/input", method = RequestMethod.POST)
 	public String input(@ModelAttribute("CAR")CarDto cardto) {
+		
+		int result = carService.insert(cardto);
 		
 		return "redirect:/";
 		

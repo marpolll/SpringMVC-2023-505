@@ -1,5 +1,7 @@
 package com.marpol.car.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.marpol.car.model.CarDto;
@@ -18,5 +20,13 @@ public class CarServiceImplV1 implements CarService {
 	public CarDto findTachoByCarNum(String carnum) {
 		
 		return carDao.findTachoByCarNum(carnum);
+	}
+
+	public int insert(CarDto cardto) {
+		return carDao.insert(cardto);
+	}
+
+	public List<CarDto> selectAll() {
+		return carDao.selectAll();
 	}
 }

@@ -41,3 +41,5 @@ values('002', '서울출장', 'marpol', '2023-07-01', '07:00', 10000, 10300);
 INSERT INTO tbl_carmanager(
 c_carnum, c_qty, c_username, c_sdate, c_stime, c_skm, c_ekm)
 values('002', '서울출장복귀', 'marpol', '2023-07-01', '18:00', 10300, 10600);
+
+select * from tbl_carmanager;
