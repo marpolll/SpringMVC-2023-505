@@ -1,147 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
 <c:set value="20230630-009" var="version" />
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>calendar</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- jquery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- bootstrap 4 -->
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<meta charset="UTF-8">
+<title>Insert title here</title>
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="${rootPath}/static/css/fullcalendar.css" rel="stylesheet" />
+<link href="${rootPath}/static/css/spectrum.css" rel="stylesheet" />
+<link href="${rootPath}/static/css/style_full.css" rel="stylesheet" />
+<link href="${rootPath}/static/css/style.css" rel="stylesheet" />
 
-<!-- fullcalendar -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.css" />
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.js"></script>
-
-<script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", function() {
-		var calendarEl = document.getElementById("calendar");
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			timeZone : "KST",
-			initialView : "dayGridMonth", // 홈페이지에서 다른 형태의 view를 확인할  수 있다.
-			events : [
-			// 일정 데이터 추가 , DB의 event를 가져오려면 JSON 형식으로 변환해 events에 넣어주면된다.
-			{
-				title : "물마시기",
-				start : "2023-07-10 00:00:00",
-				end : "2023-07-15 24:00:00",
-			// color 값을 추가해 색상도 변경 가능 자세한 내용은 하단의 사이트 참조
-			}, ],
-			headerToolbar : {
-				center : "addEventButton", // headerToolbar에 버튼을 추가
-			},
-			customButtons : {
-				addEventButton : {
-					// 추가한 버튼 설정
-					text : "일정 추가", // 버튼 내용
-					click : function() {
-						// 버튼 클릭 시 이벤트 추가
-						$("#calendarModal").modal("show"); // modal 나타내기
-
-						$("#addCalendar").on(
-								"click",
-								function() {
-									// modal의 추가 버튼 클릭 시
-									var content = $("#calendar_content").val();
-									var start_date = $("#calendar_start_date")
-											.val();
-									var end_date = $("#calendar_end_date")
-											.val();
-
-									//내용 입력 여부 확인
-									if (content == null || content == "") {
-										alert("내용을 입력하세요.");
-									} else if (start_date == ""
-											|| end_date == "") {
-										alert("날짜를 입력하세요.");
-									} else if (new Date(end_date)
-											- new Date(start_date) < 0) {
-										// date 타입으로 변경 후 확인
-										alert("종료일이 시작일보다 먼저입니다.");
-									} else {
-										// 정상적인 입력 시
-										var obj = {
-											title : content,
-											start : start_date,
-											end : end_date,
-										}; //전송할 객체 생성
-
-										console.log(obj); //서버로 해당 객체를 전달해서 DB 연동 가능
-
-										savedata(obj);
-									}
-
-								});
-					},
-				},
-			},
-			editable : true, // false로 변경 시 draggable 작동 x
-			displayEventTime : false, // 시간 표시 x
-		});
-		calendar.render();
-	});
+<script>
+	var rootPath = "${rootPath}"
 </script>
-<style>
-#calendarBox {
-	width: 70%;
-	padding-left: 15%;
-}
-</style>
+
+<script src="${rootPath}/static/js/front.js"></script>
+<script src="${rootPath}/static/js/fullcalendar.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
 </head>
 <body>
-	<div id="calendarBox">
-		<div id="calendar"></div>
+	<div class="wrap">
+		<div class="con_box">
+			<div class="calendar_wrap" id="calendar">
+				<div class="calendar_top">
+					<button class="btn_dir prev"></button>
+					<h4></h4>
+					<button class="btn_dir next"></button>
+					<button class="today">TODAY</button>
+				</div>
+				<!--// calendar_top-->
+
+				<div class="calendar_con">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<caption></caption>
+						<thead>
+							<!-- 요일 설정 -->
+							<tr></tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<!--// calendar_con-->
+			</div>
+			<!--// calendar_wrap-->
+
+			<div class="schedule_wrap">
+				<div class="schedule_form">
+					<table class="tbl th_ver" border="0" cellpadding="0"
+						cellspacing="0">
+						<caption></caption>
+						<colgroup>
+							<col width="30%" />
+							<col width="70%" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">일정명</th>
+								<td><input type="text" id="sTitle" /></td>
+							</tr>
+							<tr>
+								<th scope="row">등록일</th>
+								<td class="write_date"></td>
+							</tr>
+							<tr>
+								<th scope="row">시작일</th>
+								<td><span class="datepicker"> <input type="text"
+										id="startDate" style="width: 30%" />
+								</span></td>
+							</tr>
+							<tr>
+								<th scope="row">종료일</th>
+								<td><span class="datepicker"> <input type="text"
+										id="endDate" style="width: 30%" />
+								</span></td>
+							</tr>
+							<tr>
+								<th scope="row">색상</th>
+								<td><input type="text" id="sBg" /></td>
+							</tr>
+							<tr>
+								<th scope="row">상태</th>
+								<td>
+									<div class="style_select" style="width: 80%">
+										<label> <span></span> <select name="">
+												<option value="사용" selected>사용</option>
+												<option value="중지">중지</option>
+										</select>
+										</label>
+									</div> <!--// style_select-->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--// schedule_form-->
+
+				<div class="btn_area center">
+					<a href="#" class="btn full_gray cancel">취소</a> <a href="#"
+						class="btn full_skyblue regist">저장</a>
+				</div>
+				<!--// btn_area-->
+			</div>
+			<!--// schedule_wrap-->
+		</div>
+		<!--// con_box-->
 	</div>
 
-	<!-- modal 추가 -->
-	<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">일정을 입력하세요.</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="taskId" class="col-form-label">일정 내용</label> <input
-							type="text" class="form-control" id="calendar_content"
-							name="calendar_content" /> <label for="taskId"
-							class="col-form-label">시작 날짜</label> <input type="date"
-							class="form-control" id="calendar_start_date"
-							name="calendar_start_date" /> <label for="taskId"
-							class="col-form-label">종료 날짜</label> <input type="date"
-							class="form-control" id="calendar_end_date"
-							name="calendar_end_date" />
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-warning" id="addCalendar">
-						추가</button>
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal" id="sprintSettingModalClose">취소</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	<script type="text/javascript" src="js/spectrum.js"></script>
+	<script type="text/javascript" src="js/front.js"></script>
+	<script type="text/javascript">
+      $(() => {
+        var calendar = calendarMake({
+          ele: "#calendar", // 달력 그리는 영역
+          scheEle: ".schedule_wrap", // 일정등록 레이어 영역
+          day: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
+          today: {
+            // 오늘 날짜 서버시간 체크해서 넣어주세요
+            year: 2023,
+            month: 7,
+            date: 12,
+          },
+          registArea: ".schedule_wrap",
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "/calendar_2/src/main/webapp/WEB-INF/views/schedule.json",
+            dataType: "json",
+            success: function (res) {
+              sDataParsing.init(res.schedule); // 날짜 데이터 파싱
+              calendar.drawMonthData(7); // 출력하고 싶은 월 파라미터로 넣기
+            },
+            fail: function (xhr, status, error) {
+              console.log(error);
+            },
+          });
+      });
+    </script>
 </body>
+</html>

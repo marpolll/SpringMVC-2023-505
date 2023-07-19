@@ -8,7 +8,7 @@ import com.marpol.calendar.models.CalendarDto;
 
 public interface CalendarDao {
 	
-	@Select("SELECT * FROM calendar")
+	@Select("SELECT * FROM schedule")
 	public List<CalendarDto> selectAll();
 	
 	public int insert(CalendarDto calendarDto);
