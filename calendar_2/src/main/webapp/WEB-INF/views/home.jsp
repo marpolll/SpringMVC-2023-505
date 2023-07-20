@@ -19,7 +19,8 @@
 </script>
 
 <script src="${rootPath}/static/js/front.js"></script>
-<script src="${rootPath}/static/js/fullcalendar.js"></script>
+<script src="${rootPath}/static/js/spectrum.js"></script>
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script
@@ -133,7 +134,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/calendar_2/src/main/webapp/WEB-INF/views/schedule.json",
+            url: "schedule.json",
             dataType: "json",
             success: function (res) {
               sDataParsing.init(res.schedule); // 날짜 데이터 파싱

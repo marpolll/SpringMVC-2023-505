@@ -32,10 +32,18 @@
     <logger name="org.springframework" level="INFO" />
     
     <!-- 현재 프로젝트(com.marpol.car base-package 에서) -->
-    <logger name="com.marpol.car" level="DEBUG"  additivity="false">
+    <logger name="com.marpol.car.controller" level="DEBUG"  additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-
+    
+    <logger name="com.marpol.car.service" level="DEBUG"  additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    
+    <logger name="com.marpol.car.persistance" level="DEBUG"  additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    
 	<!-- 아무런 설정이 없을때 출력하기 설정 -->
     <root level="INFO">
         <appender-ref ref="STDOUT"/>

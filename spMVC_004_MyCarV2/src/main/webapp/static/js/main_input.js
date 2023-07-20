@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  btn_save.addEventListener("click", () => {
+  btn_save?.addEventListener("click", () => {
     err_clear();
     if (
       err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM) &&
