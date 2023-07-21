@@ -13,7 +13,7 @@ create table tbl_users (
 
 select * from tbl_users;
 
-drop table tbl_carmanager;
+drop table tbl_users;
 
 show tables;
 

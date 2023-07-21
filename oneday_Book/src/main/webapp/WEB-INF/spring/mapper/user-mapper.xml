@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.marpol.book.dao.UserDao">
+
+	<select id="findByName">
+
+		SELECT * FROM tbl_users
+		WHERE u_name LIKE
+		CONCAT('%', #{name}, '%')
+
+	</select>
+	
+	<select id="findByTel">
+
+		SELECT * FROM tbl_users
+		WHERE u_tel LIKE
+		CONCAT('%', #{name}, '%')
+
+	</select>
+
+
+	<insert id="insert">
+
+		INSERT INTO tbl_users
+		(u_code,u_name,u_tel,u_addr)
+		VALUES
+		(#{u_code},#{u_name},#{u_tel},#{u_addr})
+
+	</insert>
+
+	<update id="update">
+
+		UPDATE tbl_users
+		SET u_name = #{u_name},
+		u_tel = #{u_tel},
+		u_addr = #{u_addr},
+		u_rent = #{u_rent},
+		u_out = #{u_out}
+		WHERE u_code = #{u_code}
+
+	</update>
+
+</mapper>

@@ -2,29 +2,26 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
-<c:set value="20230630-009" var="version" />
+<c:set value="20230720-001" var="version" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="${rootPath}/static/css/fullcalendar.css" rel="stylesheet" />
-<link href="${rootPath}/static/css/spectrum.css" rel="stylesheet" />
-<link href="${rootPath}/static/css/style_full.css" rel="stylesheet" />
-<link href="${rootPath}/static/css/style.css" rel="stylesheet" />
+<link href="/hello/static/css/fullcalendar.css" rel="stylesheet" />
+<link href="/hello/static/css/spectrum.css" rel="stylesheet" />
+<link href="/hello/static/css/style_full.css" rel="stylesheet" />
+<link href="/hello/static/css/style.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="/hello/static/js/spectrum.js"></script>
+<script src="/hello/static/js/front.js"></script>
 
 <script>
 	var rootPath = "${rootPath}"
 </script>
-
-<script src="${rootPath}/static/js/front.js"></script>
-<script src="${rootPath}/static/js/spectrum.js"></script>
-
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
 </head>
 <body>
@@ -115,8 +112,8 @@
 		<!--// con_box-->
 	</div>
 
-	<script type="text/javascript" src="js/spectrum.js"></script>
-	<script type="text/javascript" src="js/front.js"></script>
+	<script type="text/javascript" src="/hello/static/js/spectrum.js"></script>
+	<script type="text/javascript" src="/hello/static/js/front.js"></script>
 	<script type="text/javascript">
       $(() => {
         var calendar = calendarMake({
@@ -127,14 +124,14 @@
             // 오늘 날짜 서버시간 체크해서 넣어주세요
             year: 2023,
             month: 7,
-            date: 12,
+            date: 20,
           },
           registArea: ".schedule_wrap",
         });
 
         $.ajax({
             type: "GET",
-            url: "schedule.json",
+            url: "/hello/",
             dataType: "json",
             success: function (res) {
               sDataParsing.init(res.schedule); // 날짜 데이터 파싱

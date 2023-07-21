@@ -1,5 +1,7 @@
 package com.marpol.calendar.models;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,15 +16,21 @@ import lombok.ToString;
 @Setter
 @Getter
 public class CalendarDto {
-	
-	private long seq; //	bigint		PRIMARY KEY	AUTO_INCREMENT,
-	private String title; // varchar(15)	,		
-	private String writedate; // varchar(10)	,		
-	private String startdate; // 	varchar(20)	,		
-	private String enddate; //	varchar(10)	,		
-	private String bgcolor; //	varchar(10)	,		
-	private String status; //	varchar(30)	
+
+//	private long seq; 
+//	private String title;
+//	private String writedate; 		
+//	private String startdate; 
+//	private String enddate; 
+//	private String bgcolor; 
+//	private String status;
+
+	private Long seq;
+	private String title;
+	private Date writedate;
+	private Date startdate;
+	private Date enddate;
+	private String bgcolor;
+	private String status;
 
 }
-
-
