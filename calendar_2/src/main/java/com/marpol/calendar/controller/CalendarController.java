@@ -2,8 +2,11 @@ package com.marpol.calendar.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,9 +44,26 @@ public class CalendarController {
 		return calendarList;
 	}
 
-	@RequestMapping(value = "/input", method = RequestMethod.GET)
-	public String insert() {
-		return "input";
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String insert(Model model, HttpSession httpSession) {
+		
+		
+		model.addAttribute("BODY", "INPUT");
+		return "home";
+	}
+	
+	
+	@RequestMapping(value = "/insert", method = RequestMethod.POST, 
+			produces = "text/html;charset=UTF-8")
+	public String insert(@ModelAttribute CalendarDto calendarDto, 
+			Model model, 
+			HttpSession httpSession) {
+		
+		calendarService.insert(calendarDto);
+
+		return "redirect:/";
+
+
 	}
 
 //	@ModelAttribute("CALE")
