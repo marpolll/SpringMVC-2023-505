@@ -34,7 +34,7 @@ public class BookServiceImplV1 implements BookService {
 	}
 
 	public int insert(BookDto bookDto) {
-		
+	
 		return bookDao.insert(bookDto);
 	}
 

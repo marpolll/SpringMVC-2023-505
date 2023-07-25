@@ -21,6 +21,7 @@
 <a href="${rootPath}/book">리스트로</a>
 <a href="${rootPath}/book/${BOOK.b_code}/update">수정하기</a>
 <a href="${rootPath}/book/${BOOK.b_code}/expire">사용중지</a>
+<a href="${rootPath}/rent">도서대여리스트로</a>
 </div>
 </body>
 </html>

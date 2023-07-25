@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.marpol.rent.dao.RentBookDao">
+
+	<insert id="insert" parameterType="RentBookDto">
+	
+	insert into tbl_rent_book (
+	r_seq, r_date, r_return_date, r_bcode, r_mcode, r_return_yn, r_point, r_price
+) values (
+	#{r_seq}, #{r_date}, #{r_return_date}, #{r_bcode}, #{r_mcode}, #{r_return_yn}, #{r_point}, #{r_price}
+)	
+
+	</insert>
+	
+	
+
+	<select id="create_rent_book_table">
+	create table if NOT EXISTS tbl_rent_book (
+	
+	r_seq	bigint	NOT NULL	primary key auto_increment,
+	r_date	varchar(10)	NOT NULL,	
+	r_return_date	varchar(10)	NOT NULL,
+	r_bcode	varchar(13)	NOT NULL,	
+	r_mcode	varchar(6)	NOT NULL,	
+	r_return_yn	varchar(1),		
+	r_point	int,		
+	r_price	int		
+		
+)
+	</select>
+	
+	<update id="update">
+	
+	UPDATE tbl_members
+		SET  
+			m_name = #{m_name}, 
+			m_tel = #{m_tel}, 
+			m_addr = #{m_addr} 
+		WHERE m_code = #{m_code}
+	
+	</update>
+ 
+ </mapper> 
