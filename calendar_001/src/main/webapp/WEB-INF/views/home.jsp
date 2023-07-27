@@ -107,10 +107,11 @@
 </style>
 </head>
 <body>
+
 	<div id="calendarBox">
 		<div id="calendar"></div>
 	</div>
-
+	
 	<!-- modal 추가 -->
 	<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">

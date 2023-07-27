@@ -41,19 +41,7 @@ commit;
 
 drop table tbl_rent_book;
 
--- 처음 시작에서 10개를 건너뛰고 : OFFSET 10
--- 그 위치부터 10개를 SELECT 하라
-select * from tbl_books
-ORDER BY B_CODE
-LIMIT 10 OFFSET 10;
-
-SELECT * FROM tbl_books LIMIT 10;
-
-select * from tbl_members;
-
 select * from tbl_rent_book;
-
-SELECT * FROM tbl_members LIMIT 10;
 
 show tables;
 
@@ -66,10 +54,5 @@ b_code, b_name, b_auther, b_comp, b_year, b_iprice, b_rprice
 	'001', '자바야', '놀자', '출판', 2010, 20000, 2000
 );
 
-drop table tbl_books;
+drop table tbl_rent_book;
 
-select * from tbl_rent_book R
-	LEFT JOIN tbl_members M
-		ON R.r_mcode = M.m_code
-	LEFT JOIN tbl_books B
-		ON R.r_bcode = B.b_code;

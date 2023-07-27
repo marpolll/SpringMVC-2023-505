@@ -38,7 +38,9 @@
 		<h1>빛고을 책방 시스템</h1>
 		<p>Book Rent Management 2023</p>
 	</header>
+	
 	<%@ include file="/WEB-INF/views/nav.jsp"%>
+	
 	<section class="main">
 		<c:if test="${empty BODY}">
 			<%@ include file="/WEB-INF/views/book/list.jsp"%>
