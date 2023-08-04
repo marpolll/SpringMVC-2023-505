@@ -70,13 +70,14 @@
             date: 20,
           },
           registArea: ".schedule_wrap",
-        });
 
+        });
         $.ajax({
             type: "GET",
             url: "/hello/list",
             dataType: "json",
             success: function (res) {
+            	console.log(res)
               sDataParsing.init(res.schedule); // 날짜 데이터 파싱
               calendar.drawMonthData(7); // 출력하고 싶은 월 파라미터로 넣기
             },
