@@ -82,5 +82,7 @@ var rootPath = "${rootPath}"
 				</c:forEach>
 			</div>
 		</c:if>
+		<button>수정</button>
+		<button class="delete">삭제</button>
 </body>
 </html>

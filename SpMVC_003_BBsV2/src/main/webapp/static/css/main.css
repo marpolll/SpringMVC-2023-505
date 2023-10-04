@@ -17,11 +17,16 @@ body {
 
 header.main {
   text-align: center;
+  background-color: blue;
+  color: yellow;
 }
 
 table.main {
   width: 60%;
   margin: 10px auto;
+}
+td {
+  text-align: center;
 }
 
 div.main.button-box {
