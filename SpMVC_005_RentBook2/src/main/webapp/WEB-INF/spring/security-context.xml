@@ -20,8 +20,8 @@
 	-->
 	<sec:http auto-config="true" use-expressions="true">
 		
-		<sec:intercept-url pattern="/bbs/insert" access="hasAnyRole('USER','ADMIN')"/>
-		<sec:intercept-url pattern="/bbs" access="isAnonymous()"/>
+		<sec:intercept-url pattern="/rent/insert" access="hasAnyRole('USER','ADMIN')"/>
+		<sec:intercept-url pattern="/rent" access="isAnonymous()"/>
 		
 		<!-- admin 두개 같은거 -->
 		<sec:intercept-url pattern="/admin" access="hasRole('ADMIN')"/>

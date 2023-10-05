@@ -11,18 +11,21 @@
 	<p>빛고을 도서대여 시스템 2023</p>
 </header>
 
-<sec:authorize access="isAuthenticated()">
-	<form:form action="${rootPath}/logout">
-		<button>로그아웃</button>
-	</form:form>
-</sec:authorize>
 
-<sec:authorize access="isAnonymous()">
-	<a href="${rootPath}/login">로그인</a>
-</sec:authorize>
 
 <nav class="main">
+
+
 	<ul>
+		<sec:authorize access="isAuthenticated()">
+			<form:form action="${rootPath}/logout">
+				<button>로그아웃</button>
+			</form:form>
+		</sec:authorize>
+
+		<sec:authorize access="isAnonymous()">
+			<li><a href="${rootPath}/login">로그인</a></li>
+		</sec:authorize>
 		<li class="home"><a href="${rootPath}/">HOME</a></li>
 
 		<li class="rent"><a href="${rootPath}/rent">도서대여</a></li>
