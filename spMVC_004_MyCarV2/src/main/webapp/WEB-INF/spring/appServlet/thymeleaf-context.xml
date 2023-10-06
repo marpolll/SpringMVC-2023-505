@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<!-- thymeleaf 로 만들어지 view 파일을 Rendering 하는 도구 -->
+	<!-- thymeleaf 로 만들어진 view 파일을 Rendering 하는 도구 -->
 	<bean id="thViewResolver"
 		class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
 		<property name="prefix" value="/WEB-INF/views/html/" />
